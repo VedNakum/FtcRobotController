@@ -16,12 +16,24 @@ public class MeepMeepTesting {
                 .build();
 
         myBot.runAction(myBot.getDrive().actionBuilder(new Pose2d(35, 60, 180))
+                .lineToY(40)
                 .splineTo(new Vector2d(10, 25), Math.toRadians(-90))
+                .waitSeconds(5)
+                .splineTo(new Vector2d(40, 40), Math.toRadians(180))
+                .strafeTo(new Vector2d(40, 57))
+                .waitSeconds(2)
+                .splineTo(new Vector2d(50, 56), Math.toRadians(-25))
+                .waitSeconds(2)
+                .splineTo(new Vector2d(40, 53), Math.toRadians(180))
+                .lineToX(37)
+                .waitSeconds(2)
+                .splineTo(new Vector2d(50, 56), Math.toRadians(-25))
+                .strafeTo(new Vector2d(55, 67))
                 .build());
 
         meepMeep.setBackground(MeepMeep.Background.FIELD_CENTERSTAGE_OFFICIAL)
                 .setDarkMode(true)
-                .setBackgroundAlpha(0.95f)
+                .setBackgroundAlpha(0.25f)
                 .addEntity(myBot)
                 .start();
     }
